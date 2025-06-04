@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainy Day Website</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #4b79a1, #283e51);
+            overflow: hidden;
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 20vh;
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        p {
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .raindrop {
+            position: absolute;
+            width: 2px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            from {
+                transform: translateY(-100vh);
+            }
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Rainy Day</h1>
+    <p>Relax and enjoy the soothing rain animation.</p>
+
+    <script>
+        const createRaindrop = () => {
+            const raindrop = document.createElement('div');
+            raindrop.classList.add('raindrop');
+
+            const startX = Math.random() * window.innerWidth;
+            const duration = Math.random() * 3 + 2; // Duration between 2-5 seconds
+
+            raindrop.style.left = `${startX}px`;
+            raindrop.style.animationDuration = `${duration}s`;
+
+            document.body.appendChild(raindrop);
+
+            // Remove the raindrop after animation
+            setTimeout(() => {
+                raindrop.remove();
+            }, duration * 1000);
+        };
+
+        setInterval(createRaindrop, 100); // Create a raindrop every 100ms
+    </script>
+
+
+<!--- if you want to add music code. as you wish -->
+
+</body>
+</html>
